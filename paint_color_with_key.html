@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        #color-content {
+            font-size: 3em;
+            position: absolute;
+            height:150px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin:auto auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="color-content"></div>
+<script>
+    document.body.onkeyup=function (event) {
+        console.log(event.keyCode);
+        if (event.keyCode==32)
+        {
+            var color=Math.floor(Math.random()*16777216).toString(16);
+            if (color.length<6)
+            {
+                var padding_length=6-color.length;
+                for (var i=0;i<padding_length;i++)
+                {
+                    color='0'+color;
+                }
+
+            }
+            color='#'+color;
+            console.log(color);
+            document.body.style.backgroundColor=color;
+            document.getElementById('color-content').innerText=color;
+        }
+    }
+</script>
+</body>
+</html>
