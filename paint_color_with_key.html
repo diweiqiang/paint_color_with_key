@@ -23,26 +23,34 @@
 <body>
 <div id="color-content"></div>
 <script>
+    function getRandomColor() {
+        var color=Math.floor(Math.random()*16777216).toString(16);
+        if (color.length<6)
+        {
+            var padding_length=6-color.length;
+            for (var i=0;i<padding_length;i++)
+            {
+                color='0'+color;
+            }
+
+        }
+        color='#'+color;
+        //console.log(color);
+        document.body.style.backgroundColor=color;
+        document.getElementById('color-content').innerText=color;
+    }
+
     document.body.onkeyup=function (event) {
-        console.log(event.keyCode);
+        //console.log(event.keyCode);
         if (event.keyCode==32)
         {
-            var color=Math.floor(Math.random()*16777216).toString(16);
-            if (color.length<6)
-            {
-                var padding_length=6-color.length;
-                for (var i=0;i<padding_length;i++)
-                {
-                    color='0'+color;
-                }
-
-            }
-            color='#'+color;
-            console.log(color);
-            document.body.style.backgroundColor=color;
-            document.getElementById('color-content').innerText=color;
+            getRandomColor();
         }
-    }
+    };
+
+    document.addEventListener('touchstart',function (event) {
+        getRandomColor();
+    });
 </script>
 </body>
 </html>
