@@ -6,8 +6,8 @@ fs.readFile('colors1.txt',function (err,data) {
     if (err) throw err;
     var arr=data.toString().split(/\s+/);
     arr.shift();
-    arr.pop();
-    arr.pop();
+    //arr.pop();
+    //arr.pop();
     //console.log(arr);
 
     for (var i=0;i<arr.length;i=i+4)
